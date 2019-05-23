@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import Header from './Header/Header';
+import CustomizerApp from './CustomizerApp/CustomizerApp';
+
 class App extends Component {
   constructor(props){
     super(props);
@@ -75,28 +78,8 @@ class App extends Component {
 
     return (
       <div className="App">
-        <header>
-          <h1>ELF Computing</h1>
-          <h3>Laptops</h3>
-          <h5>Customize your laptop</h5>  
-        </header>      
-        <main>
-          <section className="main__form">
-            <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
-            { features }
-          </section>
-          <section className="main__summary">
-            <h3>NEW GREENLEAF 2018</h3>
-            {summary}
-            <div className="summary__total">
-              <div className="summary__total__label">Your Price: </div>
-              <div className="summary__total__value">
-              { new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})
-                  .format(total) }
-              </div>
-            </div>
-          </section>
-        </main>
+        <Header />    
+        <CustomizerApp features={features} summary={summary} total={total} />
       </div>
     );
   }
